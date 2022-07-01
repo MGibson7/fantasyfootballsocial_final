@@ -24,9 +24,9 @@ export default function Login() {
                 <form className="loginBox">
                   <input placeholder="Email" type = "email" required className="loginInput" ref ={email}/>
                   <input placeholder="Password" type = "password" required minLength={6} className = "loginInput" ref ={password} />
-                  <button className="loginButton">Log In</button>
+                  <button className="loginButton" type = "submit" disabled = {isFetching}>{isFetching ? "Loading": "Log in"}</button>
                   <span className="loginForgot">Forgot Password</span>
-                  <button className="loginRegisterButton">Create a New Account</button>
+                  <button className="loginRegisterButton">{isFetching ? "Loading": "Create a New Account"}</button>
                     
                 </form>
             </div>
