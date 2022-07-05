@@ -1,7 +1,11 @@
 import "./topbar.css"
 import {Link} from "react-router-dom";
+import { useContext } from "react";
+import {AuthContext} from "../../context/AuthContext"
 
 export default function Topbar() {
+  const {user} = useContext(AuthContext)
+  const rf = process.env.REACT_APP_PUBLIC_FOLDER
   return (
     <div className = "topbarContainer">
         <div className="topbarLeft">
@@ -39,7 +43,10 @@ export default function Topbar() {
 
               </div>
             </div>
-            <img src="/assets/person/brady.png" alt="" className="topbarImg" />
+            <Link to = {`/profile/${user.username}`}>
+              <img src={user.profilePicture ? rf+user.profilePicture : rf + "football.png"} alt="" className="topbarImg" />
+            </Link>
+            
         </div>
 
     </div>
