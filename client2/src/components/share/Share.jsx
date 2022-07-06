@@ -17,6 +17,21 @@ export default function Share() {
             userId: user._id,
             desc: desc.current.value
         }
+        if(file){
+            const data = new FormData();
+            const fileName = Date.now() +file.name
+            data.append("name", fileName)
+            data.append("file", file)
+            newPost.img = fileName
+            try{
+                await axios.post("/api/upload", data)
+                /*window.location.reload()*/
+
+            }catch(err){
+                console.log(err)
+            }
+        }
+
         try{
             await axios.post("/api/posts", newPost)
 

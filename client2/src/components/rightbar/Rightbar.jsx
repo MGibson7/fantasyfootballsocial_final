@@ -4,6 +4,7 @@ import Online from "../online/Online"
 
 export default function Rightbar({user}) {
   const pf = process.env.REACT_APP_PUBLIC_FOLDER
+  
   const HomeRightbar = () =>{
     return(
       <>
@@ -53,26 +54,7 @@ export default function Rightbar({user}) {
           <img className = "rightbarFollowingImg" src={`${pf}/person/brady.png`} alt="" />
           <span className="rightbarFollowingName">John Carter</span>
         </div>
-        <div className="rightbarFollowing">
-          <img className = "rightbarFollowingImg" src={`${pf}/person/brady.png`}  alt="" />
-          <span className="rightbarFollowingName">John Carter</span>
-        </div>
-        <div className="rightbarFollowing">
-          <img className = "rightbarFollowingImg" src={`${pf}/person/brady.png`}  alt="" />
-          <span className="rightbarFollowingName">John Carter</span>
-        </div>
-        <div className="rightbarFollowing">
-          <img className = "rightbarFollowingImg" src={`${pf}/person/brady.png`}  alt="" />
-          <span className="rightbarFollowingName">John Carter</span>
-        </div>
-        <div className="rightbarFollowing">
-          <img className = "rightbarFollowingImg" src={`${pf}/person/brady.png`}  alt="" />
-          <span className="rightbarFollowingName">John Carter</span>
-        </div>
-        <div className="rightbarFollowing">
-          <img className = "rightbarFollowingImg" src={`${pf}/person/brady.png`}  alt="" />
-          <span className="rightbarFollowingName">John Carter</span>
-        </div>
+        
       </div>
       
       </>
