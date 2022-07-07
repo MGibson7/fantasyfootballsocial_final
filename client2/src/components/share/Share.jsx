@@ -25,7 +25,7 @@ export default function Share() {
             newPost.img = fileName
             try{
                 await axios.post("/api/upload", data)
-                /*window.location.reload()*/
+                
 
             }catch(err){
                 console.log(err)
@@ -34,6 +34,7 @@ export default function Share() {
 
         try{
             await axios.post("/api/posts", newPost)
+            window.location.reload()
 
         }catch(err){
 
