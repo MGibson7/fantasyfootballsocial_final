@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import "./register.css"
 import axios from "axios";
 import {useNavigate} from "react-router"
+import {Link} from "react-router-dom"
 
 export default function Register() {
   const username = useRef();
@@ -70,7 +71,10 @@ export default function Register() {
                   Profile Picture
                   <input requred placeholder="Profile Picture" type="file" id = "file" accept = ".png, .jpeg, .jpg, .webp" onChange={(e) => setFile(e.target.files[0]) } className = "loginInput" />
                   <button className="loginButton"type = "submit">Sign Up</button>
+                  <Link to = "/login">
                   <button className="loginRegisterButton">Log Into Account</button>
+                  </Link>
+                  
                     
                 </form>
             </div>
