@@ -2,9 +2,6 @@ const router  = require("express").Router();
 const Post = require("../models/Post")
 const User = require("../models/User")
 
-router.get("/", (req, res) =>{
-    console.log("post page")
-})
 
 router.post("/", async (req, res) =>{
     const newPost = new Post(req.body)
@@ -118,5 +115,20 @@ router.get("/profile/:username", async(req, res) =>{
 
     }
 })
+
+router.get("users", async (req, res) => {
+    try {
+        const users = await User.find({ user: { $ne: req.user.id } }).select([
+            "username",
+            "profilePicture",
+        ]);
+
+        res.json(users);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Servor Error");
+    }
+});
+
 
 module.exports = router;

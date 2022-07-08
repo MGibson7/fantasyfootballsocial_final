@@ -1,6 +1,5 @@
 import "./rightbar.css"
-import { Users } from "../../dummyData"
-import Online from "../online/Online"
+
 import { useContext, useEffect, useState } from "react"
 import axios from "axios"
 import {Link} from "react-router-dom"
@@ -11,8 +10,20 @@ export default function Rightbar({user}) {
   const pf = process.env.REACT_APP_PUBLIC_FOLDER
   const [friends, setFriends] = useState([])
   const { user: currentUser, dispatch } = useContext(AuthContext);
-  const [followed, setFollowed] = useState(currentUser.followings.includes(user?.id));
+  const [followed, setFollowed] = useState(currentUser.followings.includes(user?._id));
+  const [users, setUsers] = useState([])
 
+
+
+  useEffect(()=>{
+    const fetchUsers = async () =>{
+      const res = await axios.get(`/api/users/allUsers/${currentUser._id}`)
+      setUsers(res.data)
+      
+    }
+    
+    fetchUsers();
+  }, [currentUser._id])
 
 
   useEffect(() =>{
@@ -48,22 +59,24 @@ export default function Rightbar({user}) {
   }
   
   const HomeRightbar = () =>{
+   
     return(
       <>
-      <div className="birthdayContainer">
-          <img className="birthdayImg" src="/assets/birthday.png" alt="" />
-          <span className="birthdayText">
-            <b>DY</b> and <b>3 other friends</b> have a birthday today
-          </span>
+       <h3 className="fans">FIND FANS TO FOLLOW</h3>
+       <div className="users">
+        {users.map(userPr =>(
+          <Link to = {"/profile/"+userPr.username} style = {{textDecoration:"none"}}>
+
+        
+        <div className="userSite">
+          <img className = "usersImg" src={userPr.profilePicture ? pf +userPr.profilePicture : pf+"football.png"} alt="" />
+          <span className="usersName">{userPr.username}</span>
         </div>
-        <img className = "rightbarAd" src="/assets/ad.png" alt="" />
-        <h4 className="rightbarTitle">Online Friends</h4>
-        <ul className="rightbarFriendList">
-          {Users.map(u=>(
-            <Online key = {u.id} user = {u}/>
-          ))}
-          
-        </ul>
+        </Link>
+        ))}
+        
+      </div>
+       
       </>
 
     )
@@ -73,7 +86,13 @@ export default function Rightbar({user}) {
     return(
       <>
       {user.username !== currentUser.username && (
-        <button className="rightbarFollowButton" onClick = {handleClick}> {followed ? "Unfollow": "Follow"}</button>
+        <div className="follow">
+          <button className="rightbarFollowButton" onClick = {handleClick}> Follow</button>
+          <button className="rightbarFollowButton" onClick = {handleClick}> Unfollow</button>
+
+        </div>
+        
+        
         
       )}
       <h4 className="rightbarTitle">User Information</h4>

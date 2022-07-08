@@ -127,4 +127,20 @@ router.put("/:id/unfollow", async(req, res) =>{
     }
 })
 
+router.get("/allUsers/:userId", async (req, res) => {
+    try {
+        const users = await User.find({ user: { $ne: req.userId } })
+
+        let usersList = [];
+            users.map((user)=>{
+                const {username, profilePicture} = user;
+                usersList.push({username, profilePicture})
+            })
+            res.status(200).json(usersList)
+    }catch(err){
+        res.status(500).json(err)
+
+    }
+})
+
 module.exports = router

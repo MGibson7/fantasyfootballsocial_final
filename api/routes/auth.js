@@ -11,6 +11,10 @@ router.post("/register", async(req, res)=>{
                 username: req.body.username,
                 email: req.body.email,
                 password: hashedPassword,
+                profilePicture: req.body.profilePicture,
+                favTeam: req.body.favTeam,
+                favCurrPlayer: req.body.favCurrPlayer,
+                favAllTimePlayer: req.body.favAllTimePlayer,
             });
             const user = await newUser.save();
             res.status(200).json(user)

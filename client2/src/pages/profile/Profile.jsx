@@ -27,12 +27,11 @@ export default function Profile() {
     <>
     <Topbar/>
     <div className="profile">
-    <Sidebar/>
     <div className="profileRight">
         <div className="profileRightTop">
             <div className="profileCover">
-            <img className="profileCoverImg" src={user.coverPicture ? pf+user.coverPicture : pf+"post/5.jpg"} alt="" />
-            <img className="profileUserImg" src={user.profilePicture? user.profilePicture : pf + "person/brady.png"} alt="" />
+            <img className="profileCoverImg" src={user.coverPicture ? pf+user.coverPicture : pf+"field.jpg"} alt="" />
+            <img className="profileUserImg" src={user.profilePicture? pf + user.profilePicture : pf + "person/brady.png"} alt="" />
 
         </div>
         <div className="profileInfo">

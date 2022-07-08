@@ -51,6 +51,12 @@ export default function Share() {
                 <input placeholder={"What player do you want to talk about "+user.username +"?"} className="shareInput" ref = {desc}/>
             </div>
             <hr className="shareHr" />
+            {file && (
+                <div className="shareImgContainer">
+                    <img className = "shareImg" src={URL.createObjectURL(file)} alt="" />
+                    <h3 className="shareCancelImg" onClick = {()=>setFile(null)}>X</h3>
+                </div>
+            )}
             <form className="shareBottom" onSubmit={submitHandler}>
                 <div className="shareOptions">
                     <label  htmlFor = "file" className="shareOption">
@@ -58,18 +64,7 @@ export default function Share() {
                         <span className="shareOptionText">Photo or Video</span>
                         <input style = {{display: "none"}} type="file" id = "file"accept = ".png, .jpeg, .jpg, .webp" onChange={(e) => setFile(e.target.files[0]) } />
                     </label>
-                    <div className="shareOption">
-                        <img className = "shareMedia" src="/assets/tag.png" alt="" />
-                        <span className="shareOptionText">Tag</span>
-                    </div>
-                    <div className="shareOption">
-                        <img className = "shareMedia" src="/assets/location.webp" alt="" />
-                        <span className="shareOptionText">Location</span>
-                    </div>
-                    <div className="shareOption">
-                        <img className = "shareMedia" src="/assets/emoji.png" alt="" />
-                        <span className="shareOptionText">Feelings</span>
-                    </div>
+                    
                 </div>
                 <button className="shareButton" type = "submit">Share</button>
 
