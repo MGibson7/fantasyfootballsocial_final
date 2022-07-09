@@ -29,7 +29,7 @@ export default function Post({post}) {
 
     const likeHandler =()=>{
         try{
-            axios.put("/api/posts/" + post._id + "/like", {userId: currentUser._id})
+            axios.put("/posts/" + post._id + "/like", {userId: currentUser._id})
 
         }catch(err){
 
