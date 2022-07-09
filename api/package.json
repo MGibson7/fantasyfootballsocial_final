@@ -1,5 +1,5 @@
 {
-  "name": "fantasyfootballsocial_2",
+  "name": "fantasyfootballsocial_final",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MGibson7/fantasyfootballsocial_2.git"
+    "url": "git+https://github.com/MGibson7/fantasyfootballsocial_final.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MGibson7/fantasyfootballsocial_2/issues"
+    "url": "https://github.com/MGibson7/fantasyfootballsocial_final/issues"
   },
-  "homepage": "https://github.com/MGibson7/fantasyfootballsocial_2#readme",
+  "homepage": "https://github.com/MGibson7/fantasyfootballsocial_final#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
