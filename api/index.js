@@ -55,7 +55,7 @@ app.use("/api/posts", postRoute)
 app.use(express.static(path.join(__dirname, "/client2/build")));
 
 app.get('*', function(req, res) {
-  res.sendFile('index.html', { root: __dirname })
+  res.sendFile('client2/build/index.html', { root: __dirname })
 })
 
 
