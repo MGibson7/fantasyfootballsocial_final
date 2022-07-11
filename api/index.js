@@ -58,7 +58,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/client2/build', 'index.html'));
 });
 
-
 app.listen(process.env.PORT || 8800, ()=>{
     console.log("Backend server is running!")
 })
