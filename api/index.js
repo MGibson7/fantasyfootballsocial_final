@@ -54,10 +54,9 @@ app.use("/api/posts", postRoute)
 
 app.use(express.static(path.join(__dirname, "/client2/build")));
 
-app.get('*', function(req, res) {
-  res.sendFile(path.resolve(__dirname, 'client2', 'build', 'public', 'index.html'));
-})
-
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/client2/build', '/public/index.html'));
+});
 
 
 app.listen(process.env.PORT || 8800, ()=>{
