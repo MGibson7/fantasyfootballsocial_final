@@ -10,8 +10,8 @@ const postRoute = require("./routes/posts")
 const multer = require("multer")
 const path = require("path")
 
-require('dotenv').config()
-
+dotenv.config();
+ 
 
 
 mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true, useUnifiedTopology: true}, ()=>{
@@ -55,7 +55,7 @@ app.use("/api/posts", postRoute)
 app.use(express.static(path.join(__dirname, "/client2/build")));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/client2/build', 'index.html'));
+  res.sendFile(path.join(__dirname, '/client2/build/public', 'index.html'));
 });
 
 
