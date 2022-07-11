@@ -10,7 +10,7 @@ const postRoute = require("./routes/posts")
 const multer = require("multer")
 const path = require("path")
 
-dotenv.config();
+require('dotenv').config()
 
 
 
